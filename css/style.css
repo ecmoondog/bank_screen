@@ -14,4 +14,9 @@ div {
   border: 5px solid black;
   height: auto;
   width: 300px;
+  background: green;
+}
+
+#checking_balance {
+
 }
