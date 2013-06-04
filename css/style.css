@@ -17,6 +17,7 @@ div {
   background: green;
 }
 
-#checking_balance {
+.error {
+  background-color: red;
 
 }

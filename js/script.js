@@ -1,4 +1,26 @@
 $(document).ready(function(){
+  
+  empty_inputs_and_show_errors()
+  
+  function empty_inputs_and_show_errors() {
+    if($("#checking_balance").text() == 0) {
+      $("#checking").addClass("error");
+    }
+    else {
+      $("#checking").removeClass("error");
+    }
+
+    if($("#savings_balance").text() == 0) {
+      $("#savings").addClass("error");
+    }
+    else {
+      $("#savings").removeClass("error");
+    }
+
+    $('input').val('');
+
+  }
+
 
   $(ch_dep_button).on("click", deposit_in_checking);
   function deposit_in_checking(event) {
@@ -8,6 +30,7 @@ $(document).ready(function(){
     var checking_total = (parseInt(checking_balance) + parseInt(checking_input));
 
     $("#checking_balance").text(checking_total);
+    empty_inputs_and_show_errors();
     event.preventDefault();
   }
 
@@ -19,6 +42,7 @@ $(document).ready(function(){
     var savings_total = (parseInt(savings_balance) + parseInt(savings_input));
 
     $("#savings_balance").text(savings_total);
+    empty_inputs_and_show_errors();
     event.preventDefault();
   }
 
@@ -36,6 +60,7 @@ $(document).ready(function(){
     }
 
     $("#savings_balance").text(savings_total);
+    empty_inputs_and_show_errors();
     event.preventDefault();
   }
 
@@ -47,9 +72,9 @@ $(document).ready(function(){
     var checking_input = $("#checking_input").val();
     
     if(parseInt(checking_balance) < parseInt(checking_input)){
-      if((parseInt(checking_balance) + parseInt(savings_balance)) > parseInt(checking_input)){
+      if((parseInt(checking_balance) + parseInt(savings_balance)) >= parseInt(checking_input)){
         var checking_total = 0;
-        var savings_total = parseInt(savings_balance) - parseInt(checking_input);
+        var savings_total = parseInt(savings_balance) - parseInt(checking_input) + parseInt(checking_balance);
       }
       else {
         alert("You do not have enough money for that withdraw!");
@@ -64,7 +89,7 @@ $(document).ready(function(){
 
     $("#checking_balance").text(checking_total);
     $("#savings_balance").text(savings_total);
-
+    empty_inputs_and_show_errors();
     event.preventDefault();
 
   };
