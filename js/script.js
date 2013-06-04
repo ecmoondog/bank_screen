@@ -32,7 +32,7 @@ $(document).ready(function(){
   function deposit_in_checking(event) {
     
     var checking_balance = checking_bal_container.text();
-    var checking_input = $("#checking_input").val();
+    var checking_input = $("#checking_input").val(); //still need to prepare for input = "" error
     var checking_total = (parseInt(checking_balance) + parseInt(checking_input));
 
     checking_bal_container.text(checking_total);
@@ -44,7 +44,7 @@ $(document).ready(function(){
   function deposit_in_savings(event) {
     
     var savings_balance = savings_bal_container.text();
-    var savings_input = $("#savings_input").val();
+    var savings_input = $("#savings_input").val(); //still need to prepare for input = "" error
     var savings_total = (parseInt(savings_balance) + parseInt(savings_input));
 
     savings_bal_container.text(savings_total);
@@ -56,7 +56,7 @@ $(document).ready(function(){
   function withdraw_from_savings(event) {
     
     var savings_balance = savings_bal_container.text();
-    var savings_input = $("#savings_input").val();
+    var savings_input = $("#savings_input").val(); //still need to prepare for input = "" error
     
     if(parseInt(savings_balance) < parseInt(savings_input)){
       alert("You do not have enough money for that withdraw!");
@@ -75,7 +75,7 @@ $(document).ready(function(){
     
     var savings_balance = savings_bal_container.text();
     var checking_balance = checking_bal_container.text();
-    var checking_input = $("#checking_input").val();
+    var checking_input = $("#checking_input").val(); //still need to prepare for input = "" error
     
     if(parseInt(checking_balance) < parseInt(checking_input)){
       if((parseInt(checking_balance) + parseInt(savings_balance)) >= parseInt(checking_input)){
