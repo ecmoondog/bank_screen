@@ -1,20 +1,26 @@
 $(document).ready(function(){
   
+
+  var checking_container = $("#checking")
+  var savings_container = $("#savings")
+  var checking_bal_container = $("#checking_balance")
+  var savings_bal_container = $("#savings_balance")
+
   empty_inputs_and_show_errors()
-  
+
   function empty_inputs_and_show_errors() {
-    if($("#checking_balance").text() == 0) {
-      $("#checking").addClass("error");
+    if (checking_bal_container.text() == 0) {
+      checking_container.addClass("error");
     }
     else {
-      $("#checking").removeClass("error");
+      checking_container.removeClass("error");
     }
 
-    if($("#savings_balance").text() == 0) {
-      $("#savings").addClass("error");
+    if(savings_bal_container.text() == 0) {
+      savings_container.addClass("error");
     }
     else {
-      $("#savings").removeClass("error");
+      savings_container.removeClass("error");
     }
 
     $('input').val('');
@@ -25,11 +31,11 @@ $(document).ready(function(){
   $(ch_dep_button).on("click", deposit_in_checking);
   function deposit_in_checking(event) {
     
-    var checking_balance = $("#checking_balance").text();
+    var checking_balance = checking_bal_container.text();
     var checking_input = $("#checking_input").val();
     var checking_total = (parseInt(checking_balance) + parseInt(checking_input));
 
-    $("#checking_balance").text(checking_total);
+    checking_bal_container.text(checking_total);
     empty_inputs_and_show_errors();
     event.preventDefault();
   }
@@ -37,11 +43,11 @@ $(document).ready(function(){
   $(sav_dep_button).on("click", deposit_in_savings);
   function deposit_in_savings(event) {
     
-    var savings_balance = $("#savings_balance").text();
+    var savings_balance = savings_bal_container.text();
     var savings_input = $("#savings_input").val();
     var savings_total = (parseInt(savings_balance) + parseInt(savings_input));
 
-    $("#savings_balance").text(savings_total);
+    savings_bal_container.text(savings_total);
     empty_inputs_and_show_errors();
     event.preventDefault();
   }
@@ -49,7 +55,7 @@ $(document).ready(function(){
   $(sav_with_button).on("click", withdraw_from_savings);
   function withdraw_from_savings(event) {
     
-    var savings_balance = $("#savings_balance").text();
+    var savings_balance = savings_bal_container.text();
     var savings_input = $("#savings_input").val();
     
     if(parseInt(savings_balance) < parseInt(savings_input)){
@@ -59,7 +65,7 @@ $(document).ready(function(){
       var savings_total = (parseInt(savings_balance) - parseInt(savings_input));
     }
 
-    $("#savings_balance").text(savings_total);
+    savings_bal_container.text(savings_total);
     empty_inputs_and_show_errors();
     event.preventDefault();
   }
@@ -67,8 +73,8 @@ $(document).ready(function(){
   $(ch_with_button).on("click", withdraw_from_checking);
   function withdraw_from_checking(event) {
     
-    var savings_balance = $("#savings_balance").text();
-    var checking_balance = $("#checking_balance").text();
+    var savings_balance = savings_bal_container.text();
+    var checking_balance = checking_bal_container.text();
     var checking_input = $("#checking_input").val();
     
     if(parseInt(checking_balance) < parseInt(checking_input)){
@@ -87,8 +93,8 @@ $(document).ready(function(){
     
     
 
-    $("#checking_balance").text(checking_total);
-    $("#savings_balance").text(savings_total);
+    checking_bal_container.text(checking_total);
+    savings_bal_container.text(savings_total);
     empty_inputs_and_show_errors();
     event.preventDefault();
 
