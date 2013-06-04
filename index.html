@@ -3,22 +3,35 @@
   <head>
     <title>Bank Screen</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" srec="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
   </head>
   <body>
-    <h1>Bank of WDI</h1>
+    <h1>Bank of WDI (branch - Mooney)</h1>
     <div id="container">
-      <div class="account">
+      <div class="account" id="checking">
         <h2>Checking</h2>
+        
+        <form id="checking_form">
+          <p>Balance: $<span id="checking_balance"></span></p>
+          <input id="checking_input" type="text">
+          <button id="ch_dep_button" class="deposit">Deposit</button>
+          <button id="ch_with_button" class="withdraw">Withdraw</button>
+        </form>
 
       </div>
-      <div class="account">
+      <div class="account" id="savings">
         <h2>Savings</h2>
+
+        <form id="savings_form">
+          <p>Balance: $<span id="savings_balance"></span></p>
+          <input id="savings_input" type="text">
+          <button id="sav_dep_button" class="deposit">Deposit</button>
+          <button id="sav_with_button" class="withdraw">Withdraw</button>
+        </form>
 
       </div>
     </div>
-
   </body>
 </html>
 
